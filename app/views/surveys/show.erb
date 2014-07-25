@@ -1,15 +1,24 @@
 
 <h1><%= @survey.name %></h1>
 
-<ol>
-<% @survey.questions.each do |q|%>
+<table>
 
-	<li><%= q.prompt %></li>
+	<% @survey.questions.each_with_index do |q, i|%>
+	<tr>
+		<td><%= (i+1) %></td>
+		<td><%= q.prompt %></td>
+		<td><a href="">edit question</a> </td>
 
 
 
-<%end %>
-</ol>
+
+	</tr>
+
+
+
+	<%end %>
+	
+</table>
 
 <a href="/surveys/<%= @survey.id %>/questions/new">Add a Question!</a>
 

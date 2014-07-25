@@ -27,6 +27,11 @@ post "/surveys/:id/questions/create" do
 	redirect "surveys/#{@survey.id}"
 end
 
+get "/surveys/:id/questions/:id/edit" do
+
+	@survey = nil 
+
+end
 # get 'surveys/:id/edit' do
 # 	@survey = Survey.find(params[:id])	
 # end
