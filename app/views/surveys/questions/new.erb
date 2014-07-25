@@ -1,0 +1,8 @@
+<h1>Add a Survey Question</h1>
+
+
+<form action="/surveys/<%= @survey.id%>/questions/create" method="POST">
+	
+	<input type="text" name="prompt" placeholder="Enter Your Question Here!"> 
+	<input type="submit" value="Submit">
+</form>

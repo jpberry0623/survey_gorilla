@@ -1,2 +1,15 @@
 
 <h1><%= @survey.name %></h1>
+
+<ol>
+<% @survey.questions.each do |q|%>
+
+	<li><%= q.prompt %></li>
+
+
+
+<%end %>
+</ol>
+
+<a href="/surveys/<%= @survey.id %>/questions/new">Add a Question!</a>
+
