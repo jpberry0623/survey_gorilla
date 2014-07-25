@@ -1,11 +1,11 @@
-get '/' do	
+get '/' do
 
 	@surveys = Survey.all
 	erb :homepage
 end
 
 
-get '/users/:id' do 
+get '/users/:id' do
 	# @user = User.find(params[:id])
 	#erb to be decided
 end
@@ -23,7 +23,7 @@ end
 
 get '/login_signup' do
 
-	erb :login_signup
+	erb :"/current_user/login_signup"
 end
 
 post '/login' do
