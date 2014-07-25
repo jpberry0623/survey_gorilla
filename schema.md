@@ -45,7 +45,7 @@
 <row name="name" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
-<row name="password" null="1" autoincrement="0">
+<row name="password_digest" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="birthday" null="1" autoincrement="0">
@@ -62,7 +62,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="72" y="92" name="regions">
+<table x="41" y="382" name="regions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -73,7 +73,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="215" y="93" name="question_types">
+<table x="438" y="451" name="question_types">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -84,14 +84,14 @@
 <part>id</part>
 </key>
 </table>
-<table x="384" y="455" name="surveys">
+<table x="257" y="416" name="surveys">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="creator_user_id" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
@@ -103,23 +103,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="179" y="338" name="survey_takers">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="survey_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="surveys" row="id" />
-</row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="397" y="239" name="questions">
+<table x="462" y="290" name="questions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -131,14 +115,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="surveys" row="id" />
 </row>
-<row name="text" null="1" autoincrement="0">
+<row name="prompt" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="419" y="99" name="choices">
+<table x="456" y="161" name="choices">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -146,14 +130,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="questions" row="id" />
 </row>
-<row name="text" null="1" autoincrement="0">
+<row name="label" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="598" y="364" name="results">
+<table x="257" y="232" name="results">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -161,19 +145,18 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="survey_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="surveys" row="id" />
-</row>
 <row name="choice_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="choices" row="id" />
 </row>
+<row name="geolocation" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="95" y="483" name="access_levels">
+<table x="57" y="456" name="access_levels">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -185,6 +168,7 @@
 </key>
 </table>
 </sql>
+
 
 
 ```
