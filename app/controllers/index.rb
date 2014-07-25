@@ -6,13 +6,13 @@ get '/' do
 end
 
 post '/users/new' do
-
+	p params[:new_user]
 	@user = User.create(params[:new_user])
 	redirect "/users/#{@user.id}"
 end
 
 get '/users/new' do
-
+	@regions = Region.all
 	erb :'users/new'
 end
 
