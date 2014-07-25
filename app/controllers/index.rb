@@ -5,9 +5,7 @@ get '/' do
 end
 
 
-get '/users/:id' do
-
-
+get '/users/:id' do 
 	# @user = User.find(params[:id])
 	#erb to be decided
 end
