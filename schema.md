@@ -55,6 +55,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="regions" row="id" />
 </row>
+<row name="email" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -182,5 +185,6 @@
 </key>
 </table>
 </sql>
+
 
 ```
