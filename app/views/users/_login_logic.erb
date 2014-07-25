@@ -1,0 +1,9 @@
+<div container="login-logic">
+  <% if @user %>
+    <a href="/users/logout">Logout</a>
+  <% else %>
+    <a href="/users/new">Sign Up</a>
+    <a href="users/login">Login</a>
+  <% end %>
+  <br><br>
+</div>

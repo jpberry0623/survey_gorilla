@@ -1,48 +1,48 @@
-get '/' do	
+get '/' do
 
+	@user ||= session[:user_id]
 	@surveys = Survey.all
 	erb :homepage
 end
 
+post '/users/new' do
 
-get '/users/:id' do 
-	# @user = User.find(params[:id])
-	#erb to be decided
-end
-
-post '/users' do
 	@user = User.create(params[:new_user])
-
 	redirect "/users/#{@user.id}"
 end
 
-get '/users/create' do
+get '/users/new' do
 
-	erb :new_user_create
+	erb :'users/new'
 end
 
-get '/login_signup' do
+get '/users/login' do
 
-	erb :login_signup
+	erb :'users/login'
 end
 
-post '/login' do
+post '/users/login' do
 	@user = User.find_by_username(params[:username])
 	if @user && @user.authenticate(params[:password])
 		session[:user_id] = @user.id
 		redirect "/"
 	else
-		redirect "/login_signup"
+		redirect "/users/login"
 	end
 end
 
 
-post '/logout' do
+get '/users/logout' do
 
 	session[:user_id] = nil
 	redirect '/'
 end
 
+get '/users/:id' do
+
+	# @user = User.find(params[:id])
+	#erb to be decided
+end
 
 
 get 'users/:id/edit' do

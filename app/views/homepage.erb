@@ -1,5 +1,6 @@
 <div class="container">
   <h1> Welcome to Survey Gorilla! </h1>
+  <%= erb :'users/_login_logic' %>
   <% @surveys.each do |survey| %>
     <a href="/survey/<%= survey.id %>"> <%= survey.name %> </a>
     <br>
