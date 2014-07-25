@@ -1,0 +1,9 @@
+<div class="container">
+  <h1> Welcome to Survey Gorilla! </h1>
+  <% @surveys.each do |survey| %>
+    <a href="/survey/<%= survey.id %>"> <%= survey.name %> </a>
+    <br>
+    Created by: <%= survey.user %>
+    <br><br>
+  <% end %>
+</div>
