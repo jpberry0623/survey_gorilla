@@ -1,3 +1,4 @@
 class Result < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :user # the taker
+  belongs_to :choice
 end

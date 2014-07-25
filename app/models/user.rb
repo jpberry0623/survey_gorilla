@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :results
+  has_many :surveys
+  has_one :region
 end
