@@ -1,2 +1,0 @@
-class Taker < User
-end
