@@ -1,2 +1,0 @@
-class Creator < User
-end
