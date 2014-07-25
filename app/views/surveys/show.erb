@@ -1,24 +1,26 @@
 
 <h1><%= @survey.name %></h1>
 
-<table>
+<table id="survey_questions">
 
 	<% @survey.questions.each_with_index do |q, i|%>
 	<tr>
 		<td><%= (i+1) %></td>
 		<td><%= q.prompt %></td>
 		<td><a href="">edit question</a> </td>
-
-
-
-
 	</tr>
 
 
 
 	<%end %>
-	
+
 </table>
 
-<a href="/surveys/<%= @survey.id %>/questions/new">Add a Question!</a>
+<form action="/surveys/<%= @survey.id%>/questions/create" method="POST" id="new_question">
+
+  <input type="text" name="prompt" placeholder="Enter Your Question Here!">
+  <input type="submit" value="Submit">
+</form>
+
+<!-- <a href="/surveys/<%= @survey.id %>/questions/new" id="new_question">Add a Question!</a> -->
 
