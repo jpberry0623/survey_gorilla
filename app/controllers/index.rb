@@ -18,9 +18,13 @@ end
 
 get '/users/create' do
 
+	erb :new_user_create
 end
 
 get '/login_signup' do
 
+	erb :login_signup
 end
+
+
 
