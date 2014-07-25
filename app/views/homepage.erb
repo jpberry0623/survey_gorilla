@@ -3,7 +3,7 @@
   <% @surveys.each do |survey| %>
     <a href="/survey/<%= survey.id %>"> <%= survey.name %> </a>
     <br>
-    Created by: <%= survey.user %>
+    Created by: <%= survey.get_user(survey.user_id) %>
     <br><br>
   <% end %>
 </div>
