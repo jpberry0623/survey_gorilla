@@ -17,8 +17,8 @@ end
  
 #User
 20.times do 
-	Taker.create(name: Faker::Name.name, email: Faker::Internet.email, password_digest: Faker::Internet.password, birthday: Date.now, region_id: rand(4))
-
+	User.create(name: Faker::Name.name, email: Faker::Internet.email, password_digest: Faker::Internet.password, birthday: Faker::Business.credit_card_expiry_date, region_id: rand(4))
+end
 # Survey
 5.times do 
 	Survey.create(name: Faker::Name.title, user_id: rand(10), access_level_id: rand(10))
@@ -27,12 +27,11 @@ end
 #Question
 20.times do 
 	Question.create(question_type_id: rand(3), survey_id: rand(5), prompt: Faker::Lorem.sentence)
-)
 end
 
 #choices
 30.times do
-	Choices.create(question_id: rand(20), label: Faker::Name.title) 
+	Choice.create(question_id: rand(20), label: Faker::Name.title) 
 end
 
 #result
