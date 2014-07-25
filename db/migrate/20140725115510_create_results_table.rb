@@ -3,7 +3,6 @@ class CreateResultsTable < ActiveRecord::Migration
   	create_table :results do |t|
   		t.references :user
   		t.references :choice
-  		t.references :survey
   		t.string :geolocation
   		
   		t.timestamps
