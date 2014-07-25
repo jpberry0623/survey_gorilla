@@ -4,7 +4,7 @@ get '/' do
 	erb :homepage
 end
 
-get '/users/:id'
+get '/users/:id' do
 
 	# @user = User.find(params[:id])
 	#erb to be decided
