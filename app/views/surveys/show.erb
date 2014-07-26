@@ -7,7 +7,7 @@
 	<tr>
 		<td><%= (i+1) %></td>
 		<td><%= q.prompt %></td>
-		<td><a href="">edit question</a> </td>
+		<td><a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit">edit question</a> </td>
 	</tr>
 	<%end %>
 
@@ -27,7 +27,7 @@
 <br>
 <% questions = Question.where(survey_id: @survey.id ) %>
   <% questions.each do |question| %>
-   <ul>Question:  <%=question.prompt  %> <a href="/question/<%=question.id%>/edit">edit question</a></ul>
+   <ul>Question:  <%=question.prompt  %> <a href="/surveys/<%= @survey.id %>/questions/<%= question.id %>/edit">edit question</a></ul>
     <% ch = question.choices %>
     <br>
     <% ch.each do |choice| %>
