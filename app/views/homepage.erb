@@ -5,7 +5,7 @@
   <% @surveys.each do |survey| %>
     <a href="/survey/<%= survey.id %>"> <%= survey.name %> </a>
     <br>
-    Created by: <%= survey.get_user(survey.user_id) %>
+    Created by: <%= survey.get_user(survey.id) %>
     <br><br>
   <% end %>
 </div>
@@ -14,6 +14,6 @@
 <ul>
 	
 	<li><a href="/surveys/all">Take a Survey</a></li>
-	<li>Create a Survey</li>
+	<li><a href="/surveys/new">Create a Survey</a></li>
 </ul>
 
