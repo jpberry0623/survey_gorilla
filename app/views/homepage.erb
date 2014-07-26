@@ -1,0 +1,19 @@
+
+<div class="container">
+  <h1> Welcome to Survey Gorilla! </h1>
+  <%= erb :'users/_login_logic' %>
+  <% @surveys.each do |survey| %>
+    <a href="/survey/<%= survey.id %>"> <%= survey.name %> </a>
+    <br>
+    Created by: <%= survey.get_user(survey.user_id) %>
+    <br><br>
+  <% end %>
+</div>
+
+<h3>What would you like to do?</h3>
+<ul>
+	
+	<li><a href="/surveys/all">Take a Survey</a></li>
+	<li>Create a Survey</li>
+</ul>
+
