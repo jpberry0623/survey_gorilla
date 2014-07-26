@@ -9,6 +9,7 @@ post '/users/new' do
 	p params
 	p @user = User.create(params[:new_user])
 	session[:user_id] = @user.id
+end
 
 
 get '/users/:id' do
