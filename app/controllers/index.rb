@@ -11,9 +11,8 @@ get '/users/:id' do
 end
 
 post '/users/create' do
-	p params[:new_user]
-	# @user = User.create(params[:new_user])
-	redirect "/"
+	@user = User.create(params[:new_user])
+	redirect "/users/#{@user.id}"
 end
 
 get '/login_signup' do
