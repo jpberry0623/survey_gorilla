@@ -29,7 +29,8 @@ li a{
   padding: 0 10px;
 }
 .nav_bar a:hover{
-  background: #ffffcc;
+  box-shadow: 0px 0px 10px #888888;
+
 }
 h3{
    color:#1C1C1C;
@@ -56,13 +57,21 @@ footer{
   width: 80%;
   padding-left: 3em;
   padding-right: 3em;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   background-color: #BDBDBD;
   margin: auto;
   overflow: auto;
 }
 .login-logic{
   float: right;
+}
+.survey-links{
+  float: right;
+  color:#F2F2F2;
+}
+.survey-links a{
+
+  color:#F2F2F2;
 }
 .homeh1{
   width: 100%;
@@ -79,7 +88,6 @@ footer{
   color:#1C1C1C;
 }
 
-
 .todo{
   float: left ;
   width: 40%;
@@ -93,6 +101,7 @@ footer{
   border: 1px solid black;
   overflow: hidden;
 }
+
 dt{
   font-size: 25px;
 }
