@@ -1,5 +1,9 @@
 $(document).ready(function() {
-   var surveyId = window.location.pathname.split('/')[2];
+  var surveyId = window.location.pathname.split('/')[2];
+  
+  var signUpButt = document.getElementsByClassName("sign-up")[0];
+  hi(signUpButt);
+
   $("#new_question").submit(function(e){
       e.preventDefault();
       console.log(e);
@@ -20,9 +24,10 @@ $(document).ready(function() {
 
       });
     // );
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });
+
+var hi = function(wazzup){
+  console.log(wazzup);
+}
+

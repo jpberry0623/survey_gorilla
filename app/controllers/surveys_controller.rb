@@ -57,7 +57,7 @@ post "/surveys/:id/questions/create" do
 	@survey = Survey.find(params[:id])
 	@question = Question.create(prompt: params[:prompt], survey_id: @survey.id)
 	@question.to_json
-	# redirect "surveys/#{@survey.id}"
+	redirect "surveys/#{@survey.id}"
 end
 
 # EDIT SURVEY QUESTION
