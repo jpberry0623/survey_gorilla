@@ -1,17 +1,11 @@
 <div class="login-logic">
   <ul>
   <% if @user %>
-<<<<<<< HEAD
+    <li><a href="users/<%= session[:user_id]%>">Profile Page</a></li>
     <li><a href="/users/logout">Logout</a></li>
   <% else %>
     <li><a href="/users/new">Sign Up</a></li>
     <li><a href="users/login">Login</a></li>
-=======
-
-		<a href="users/<%= session[:user_id]%>">Profile Page</a>
-    <a href="/users/logout">Logout</a>
-  <% else %>
->>>>>>> 6562f6778c49d17221fdb4ae828736ed768d37ec
   <% end %>
     <li><a href="result/survey/3">View Results</a></li>
    </ul>
