@@ -6,19 +6,14 @@ end
 
 
 get '/users/:id' do
-	# @user = User.find(params[:id])
-	#erb to be decided
+	@user = User.find(params[:id])
+	erb :"current_user/profile"
 end
 
-post '/users' do
-	@user = User.create(params[:new_user])
-
-	redirect "/users/#{@user.id}"
-end
-
-get '/users/create' do
-
-	erb :new_user_create
+post '/users/create' do
+	p params[:new_user]
+	# @user = User.create(params[:new_user])
+	redirect "/"
 end
 
 get '/login_signup' do
@@ -45,10 +40,10 @@ end
 
 
 
-get 'users/:id/edit' do
+# get 'users/:id/edit' do
 
 
-end
+# end
 
 
 
