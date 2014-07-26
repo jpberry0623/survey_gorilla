@@ -1,0 +1,15 @@
+<h2>WARNING</h2>
+
+<p><strong>You are about to delete this question.  This action, once completed, will be irreversible.</strong></p>
+
+<p> <%= @question.label %> </p>
+
+<p><strong>Confirm Destruction of this question:</strong></p>
+
+
+
+<form action="/users/<%=@user.id%>/delete" method="post">
+	<input type="hidden" name="_method" value="delete">
+  <input type="submit" value="DESTROY ME FOREVER!">
+</form>
+

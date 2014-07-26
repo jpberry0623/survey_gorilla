@@ -9,8 +9,7 @@
     <% ch = question.choices %>
     <br>
     <% ch.each do |choice| %>
-    <li><%= choice.label %> </li>
-    <%= @results_hash[choice.id] %>
+    <li><%= @results_hash[choice.id] %>: <%= choice.label %> </li>
     <br>
     <% end %>
   <% end %>

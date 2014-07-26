@@ -5,7 +5,8 @@ get '/users/new' do
 	erb :'users/new'
 end
 
-post '/users/new' do
+
+post '/users/create' do
 	@user = User.create(params[:new_user])
 	session[:user_id] = @user.id
 	redirect "/users/#{@user.id}"
