@@ -6,4 +6,3 @@ get '/users/:id' do
 end
 
 
-end
