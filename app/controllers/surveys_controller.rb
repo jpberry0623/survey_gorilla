@@ -9,7 +9,7 @@ post '/surveys/create' do
 	redirect "/surveys/#{@survey.id}"
 end
 
-# EDIT A SURVEY 
+# EDIT A SURVEY
 # (its title and any other survey (not question/results) characteristics)
 # not needed for MVP
 get 'surveys/:id/edit' do
@@ -23,7 +23,7 @@ end
 get '/surveys/:id/delete' do
 end
 
-delete '/surveys/:id/delete' do  
+delete '/surveys/:id/delete' do
 	redirect to ('/')
 end
 
@@ -68,4 +68,11 @@ end
 # get 'surveys/:id/edit' do
 # 	@survey = Survey.find(params[:id])
 # end
+
+# TAKE A SURVEY
+get '/surveys/:id/take' do
+	@survey = Survey.find(params[:id])
+	erb :"surveys/survey_take"
+end
+
 
