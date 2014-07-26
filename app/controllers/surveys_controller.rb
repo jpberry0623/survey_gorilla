@@ -9,7 +9,7 @@ end
 
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
-	 erb :"/result/result_survey"
+
 	erb :"surveys/show"
 end
 
@@ -33,5 +33,12 @@ end
 
 get '/survey/:id/' do
 
+end
+
+#display results of the survey
+get '/surveys/:id/results' do
+	@survey = Survey.find(params[:id])
+p	@results_hash = Result.group(:choice_id).count
+	 erb :"/result/result_survey"
 end
 

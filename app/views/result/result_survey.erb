@@ -1,5 +1,5 @@
 <!-- Survey display -->
-
+<h2>Added display of the results with # count</h2>
 <div class="container">
 <h2>Survey name:  <%= @survey.name%></h2>
 <br>
@@ -10,6 +10,7 @@
     <br>
     <% ch.each do |choice| %>
     <li><%= choice.label %> </li>
+    <%= @results_hash[choice.id] %>
     <br>
     <% end %>
   <% end %>
