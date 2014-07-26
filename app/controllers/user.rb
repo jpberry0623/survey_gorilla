@@ -5,11 +5,36 @@ get '/users/new' do
 	erb :'users/new'
 end
 
-
 post '/users/new' do
 	@user = User.create(params[:new_user])
 	session[:user_id] = @user.id
 	redirect "/users/#{@user.id}"
+end
+
+# USER LOGIN STUFF
+
+get '/users/login' do
+	@errors = 
+	erb :'users/login'
+end
+
+
+post '/users/login' do
+	@user = User.find_by_email(params[:email])
+	p params[:email].inspect
+	if @user && @user.authenticate(params[:password])
+		# p @user.id
+		session[:user_id] = @user.id
+		redirect "/"
+	else
+		session[:errors] = 'derp'
+		redirect "/users/login"
+	end
+end
+
+get '/users/logout' do
+	session[:user_id] = nil
+	redirect '/'
 end
 
 
@@ -55,29 +80,4 @@ end
 
 
 
-
-# USER LOGIN STUFF
-
-get '/users/login' do
-	erb :'users/login'
-end
-
-
-# CREATE NEW USER
-
-post '/users/login' do
-	@user = User.find_by_username(params[:username])
-	if @user && @user.authenticate(params[:password])
-		session[:user_id] = @user.id
-		redirect "/"
-	else
-		redirect "/users/login"
-	end
-end
-
-
-get '/users/logout' do
-	session[:user_id] = nil
-	redirect '/'
-end
 
