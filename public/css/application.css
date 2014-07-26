@@ -62,17 +62,20 @@ footer{
   margin: auto;
   overflow: auto;
 }
+
 .login-logic{
   float: right;
 }
+
 .survey-links{
   float: right;
   color:#F2F2F2;
 }
-.survey-links a{
 
+.survey-links a{
   color:#F2F2F2;
 }
+
 .homeh1{
   width: 100%;
   padding-top: 5px;
@@ -92,9 +95,11 @@ footer{
   float: left ;
   width: 40%;
 }
+
 .todo a{
   color:black;
 }
+
 .container{
   width: 900px;
   margin: auto;

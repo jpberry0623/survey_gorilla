@@ -10,23 +10,29 @@
 </table><br>
 
 
-<form action="/users/edit" method="get">
+<form action="/users/<%=@user.id%>/edit" method="get">
   <button type="submit">EDIT PROFILE</button>
 </form><br><br>
 
-<form action="/survey/new" method="get">
+<form action="/surveys/new" method="get">
   <button type="submit">CREATE NEW SURVEY</button>
 </form><br><br>
 
+<form action="/users/<%=@user.id%>/delete" method="get">
+  <input type="submit" value="DELETE PROFILE">
+</form>
+
+
+
 <h4>Surveys I Wrote--NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE</h4>
 <% @surveys.each do |survey| %>
-<a href="/surveys/<%=survey.id%>"><%= survey.name %></a>
+<a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
 <% end %>
 
 <h4>Surveys I Took--NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE</h4>
-<% @surveys_taken.each do |survey| %>
-<a href="/surveys/<%=survey.id%>"><%= survey.choice.label %></a>
-<% end %>
+<em>Avi and Alan removed this non-working bit (which was a placeholder anyway).</em>
+
+
 
 <%= erb :_footer %>
 </div>
