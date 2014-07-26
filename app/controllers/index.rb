@@ -1,13 +1,12 @@
 get '/' do
-
 	@user ||= session[:user_id]
 	@surveys = Survey.all
 	erb :homepage
 end
 
 post '/users/new' do
-	p params[:new_user]
 	@user = User.create(params[:new_user])
+	session[:user_id] = @user.id
 	redirect "/users/#{@user.id}"
 end
 
@@ -17,7 +16,6 @@ get '/users/new' do
 end
 
 get '/users/login' do
-
 	erb :'users/login'
 end
 
@@ -33,13 +31,11 @@ end
 
 
 get '/users/logout' do
-
 	session[:user_id] = nil
 	redirect '/'
 end
 
 get '/users/:id' do
-
 	# @user = User.find(params[:id])
 	#erb to be decided
 end
@@ -47,8 +43,9 @@ end
 
 get 'users/:id/edit' do
 
-
 end
+
+
 
 
 

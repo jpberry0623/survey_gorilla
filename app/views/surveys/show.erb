@@ -8,17 +8,24 @@
 		<td><%= (i+1) %></td>
 		<td><%= q.prompt %></td>
 		<td><a href="">edit question</a> </td>
-
-
-
-
 	</tr>
-
-
-
 	<%end %>
-	
 </table>
 
 <a href="/surveys/<%= @survey.id %>/questions/new">Add a Question!</a>
 
+
+<div class="container">
+<h2>Survey name:  <%= @survey.name%></h2>
+<br>
+<% questions = Question.where(survey_id: @survey.id ) %>
+  <% questions.each do |question| %>
+   <ul>Question:  <%=question.prompt  %> <a href="/question/<%=question.id%>/edit">edit question</a></ul>
+    <% ch = question.choices %>
+    <br>
+    <% ch.each do |choice| %>
+    <li><%= choice.label %> </li>
+    <br>
+    <% end %>
+  <% end %>
+</div>
