@@ -6,31 +6,21 @@ end
 
 
 post '/users/new' do
-	p params
-	p @user = User.create(params[:new_user])
-	session[:user_id] = @user.id
-end
-
-
-get '/users/:id' do
-	# @user = User.find(params[:id])
-	#erb to be decided
-end
-
-post '/users' do
 	@user = User.create(params[:new_user])
+	session[:user_id] = @user.id
 	redirect "/users/#{@user.id}"
 end
+
 
 get '/users/new' do
 	@regions = Region.all
 	erb :'users/new'
 end
 
-
 get '/users/login' do
 	erb :'users/login'
 end
+
 
 post '/users/login' do
 	@user = User.find_by_username(params[:username])
@@ -48,15 +38,18 @@ get '/users/logout' do
 	redirect '/'
 end
 
+
 get '/users/:id' do
-	# @user = User.find(params[:id])
-	#erb to be decided
+	@user = User.find(params[:id])
+	@surveys_taken = @user.surveys
+	@surveys = Survey.all
+	erb :"users/profile"
 end
 
 
-get 'users/:id/edit' do
 
-end
+# get 'users/:id/edit' do
+# end
 
 
 

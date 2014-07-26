@@ -13,6 +13,7 @@ gem 'thin'
 
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'rake'
 
