@@ -4,6 +4,8 @@ $(document).ready(function() {
   var signUpButt = document.getElementsByClassName("sign-up")[0];
   hi(signUpButt);
 
+  signUpButt.addEventListener("click", alertMe, false);
+
   $("#new_question").submit(function(e){
       e.preventDefault();
       console.log(e);
@@ -29,5 +31,9 @@ $(document).ready(function() {
 
 var hi = function(wazzup){
   console.log(wazzup);
+}
+
+var alertMe = function(){
+  alert("i iz listening");
 }
 
