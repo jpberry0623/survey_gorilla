@@ -1,0 +1,7 @@
+<h1>All Surveys</h1>
+
+<ul>
+<% Survey.all.each do |survey| %>
+  <li><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></li>
+  <% end %>
+</ul>
