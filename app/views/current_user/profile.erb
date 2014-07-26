@@ -1,22 +1,43 @@
+<%= erb :_header %>
+
 <div id="container">
 
-<form action="/user/edit" method="get">
+<h4>Your Details</h4>
+<table id="profile_stats">
+  <td>NAME</td><td><%= @user.name %></td></tr>
+  <td>BIRTHDAY</td><td><%= @user.birthday %></td></tr>
+  <td>EMAIL</td><td><%= @user.email %></td></tr>
+</table><br>
+
+
+<form action="/users/edit" method="get">
   <button type="submit">EDIT PROFILE</button>
-</form>
+</form><br><br>
 
 <form action="/survey/new" method="get">
   <button type="submit">CREATE NEW SURVEY</button>
-</form>
+</form><br><br>
 
-<h4>Surveys I Wrote</h4>
-XXXX
-XXXX
-XXXX
+<h4>Surveys I Wrote--NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE</h4>
+<% @surveys.each do |survey| %>
+<a href="/surveys/<%=survey.id%>"><%= survey.name %></a>
+<% end %>
 
+<h4>Surveys I Took--NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE</h4>
+<% @surveys_taken.each do |survey| %>
+<a href="/surveys/<%=survey.id%>"><%= survey.choice.label %></a>
+<% end %>
 
-<h4>Surveys I Wrote</h4>
-XXXX
-XXXX
-XXXX
-
+<%= erb :_footer %>
 </div>
+
+<style type="text/css">
+  #container {
+    margin-left: 50px;
+  }
+
+  #profile_stats td:first-child {
+    width: 150px;
+  }
+
+</style>
