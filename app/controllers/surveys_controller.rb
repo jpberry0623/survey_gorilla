@@ -7,9 +7,13 @@ post '/surveys/create' do
 	redirect "/surveys/#{@survey.id}"
 end
 
+
+get '/surveys/all' do
+	erb :"surveys/all_surveys"
+end
+
 get '/surveys/:id' do
 	@survey = Survey.find(params[:id])
-
 	erb :"surveys/show"
 end
 
@@ -21,7 +25,8 @@ end
 post "/surveys/:id/questions/create" do
 	@survey = Survey.find(params[:id])
 	@question = Question.create(prompt: params[:prompt], survey_id: @survey.id)
-	redirect "surveys/#{@survey.id}"
+	@question.to_json
+	# redirect "surveys/#{@survey.id}"
 end
 
 get "/surveys/:id/questions/:id/edit" do
@@ -38,7 +43,7 @@ end
 #display results of the survey
 get '/surveys/:id/results' do
 	@survey = Survey.find(params[:id])
-p	@results_hash = Result.group(:choice_id).count
+  @results_hash = Result.group(:choice_id).count
 	 erb :"/result/result_survey"
 end
 
