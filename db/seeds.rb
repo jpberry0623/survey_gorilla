@@ -131,7 +131,9 @@ Choice.create(question_id: 29, label: "cicadas")
 
 
 
-# Radio Buttons
+# Radio Buttons (user may choose only one choice)
+# Each of the 50 seeded users makes a random choice of the given choices
+
 # Q21
   50.times do |user_num|
     Result.create(user_id: user_num+1, choice_id: rand(31..34))
@@ -146,6 +148,35 @@ Choice.create(question_id: 29, label: "cicadas")
   50.times do |user_num|
     Result.create(user_id: user_num+1, choice_id: rand(39..42))
   end
+
+
+# CHECKBOXES (user may choose zero or more choices)
+# Each of the 50 seeded users goes thru each of the given choices and
+# randomly decides whether to fill in that choice
+
+# Q24 (43-46)
+  50.times do |user_num|
+    (43..46).each do |option|
+      Result.create(user_id: user_num+1, choice_id: option) if rand(1..10) > 5
+    end
+  end
+
+# Q25 (47-50)
+  50.times do |user_num|
+    (47..50).each do |option|
+      Result.create(user_id: user_num+1, choice_id: option) if rand(1..10) > 5
+    end
+  end
+
+# Q26 (51-54)
+  50.times do |user_num|
+    (51..54).each do |option|
+      Result.create(user_id: user_num+1, choice_id: option) if rand(1..10) > 5
+    end
+  end
+
+# DROPDOWN BOXES (user may choose only one choice)
+# Each of the 50 seeded users makes a random choice of the given choices
 
 # Q27
   50.times do |user_num|
