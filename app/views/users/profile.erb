@@ -1,6 +1,9 @@
 <div id="container">
 
 <h4>Your Details</h4>
+
+<image class="profile" src="http://www.gravatar.com/avatar/<%=gravatar_hash(@user.email)%>">
+
 <table id="profile_stats">
   <td>NAME</td><td><%= @user.name %></td></tr>
   <td>BIRTHDAY</td><td><%= @user.birthday %></td></tr>
