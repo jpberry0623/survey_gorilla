@@ -4,8 +4,10 @@ get '/surveys/new' do
 end
 
 post '/surveys/create' do
+  current_user
   @survey = Survey.create(name: params[:name])
   # redirect "/surveys/#{@survey.id}"
+  @current_user.surveys << @survey
   @survey.to_json
 end
 
