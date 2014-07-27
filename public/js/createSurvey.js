@@ -35,8 +35,9 @@ $(document).ready(function() {
         url: '/surveys/'+surveyId+'/questions/create',
         dataType: "JSON",
       }).success(function(data) {
-        console.log(data);
         $(".new_choice").attr("action","/surveys/"+surveyId+"/questions/"+data.id+"/choices/create");
+        $(".new_choice").append("<input type='hidden' name='survey_id' value="+surveyId);
+        $(".new_choice").append("<input type='hidden' name='question_id' value="+data.id);
         $(".new_question").each(function(){
             this.reset();
             $(".question_choices").dialog("open");
@@ -48,17 +49,13 @@ $(document).ready(function() {
     });
   $(".new_choice").submit(function(e){
     e.preventDefault();
-    console.log(e);
-    console.log(this);
-    var questionId = e.id;
-    var surveyId = e.survey_id;
+    $( ".question_choices" ).dialog( "close" );
     $.ajax({
       type: "POST",
       data: $(".new_choice").serialize(),
-      url: "/surveys/"+surveyId+"/questions/"+questionId+"/choices/create",
+      url: $(".new_choice").attr("action"),
       dataType: "JSON",
     }).success(function(data) {
-      this.reset();
       console.log(data);
     });
   })
