@@ -52,6 +52,7 @@ end
 # EDIT USER PROFILE
 
 get '/users/:id/edit' do
+	@user = User.find(params[:id])
 	erb :"users/profile_edit"
 	# ALAN TO DO
 	# NOTE TO SELF, ALAN (user the :update_user hash to hold changed data)
@@ -59,7 +60,8 @@ end
 
 patch '/users/:id' do
 	@user = User.find(params[:id])
-	@user.update(params[:update_user])
+	@user.update(params[:user])
+	redirect to ("/users/#{@user.id}")
 end
 
 
