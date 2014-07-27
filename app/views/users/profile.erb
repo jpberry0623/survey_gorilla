@@ -25,12 +25,19 @@
 
 
 <h4>Surveys I Wrote--NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE</h4>
-<% @surveys.each do |survey| %>
-<a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
+<!-- Don't display surveys if nil -->
+<% if @surveys_written != nil %>
+  <% @surveys_written.each do |survey| %>
+  <a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
+  <% end %>
 <% end %>
 
 <h4>Surveys I Took--NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE</h4>
-<em>Avi and Alan removed this non-working bit (which was a placeholder anyway).</em>
+<% if @surveys_taken != nil %>
+  <% @surveys_taken.each do |survey| %>
+  <a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
+  <% end %>
+<% end %>
 
 
 
