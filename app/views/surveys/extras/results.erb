@@ -4,10 +4,7 @@
 <br>
 <% questions = Question.where(survey_id: @survey.id ) %>
   <% questions.each do |question| %>
-   <ul>Question:  <%= question.prompt  %></ul>
-    <% question.choices.each do |choice| %>
-    <li><%= @results_hash[choice.id] %>: <%= choice.label %> </li>
-    <% end %>
+    <%= question.display_question(@results_hash) %>
     <%= pie_chart(question.prepare_chart(@results_hash)) %>
   <% end %>
 </div>

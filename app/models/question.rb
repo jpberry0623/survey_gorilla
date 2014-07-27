@@ -11,4 +11,12 @@ class Question < ActiveRecord::Base
     return data
   end
 
+  def display_question(results_hash)
+    html = "<ul>Question: #{self.prompt}"
+    self.choices.each do |choice|
+    html += "<br><li>#{results_hash[choice.id]} people selected #{choice.label}</li>"
+    end
+    html += "</ul>"
+  end
+
 end
