@@ -193,3 +193,16 @@ Choice.create(question_id: 29, label: "cicadas")
     Result.create(user_id: user_num+1, choice_id: rand(63..66))
   end
 
+# t.string :name
+# t.string :password_digest
+# t.date :birthday
+# t.references :region
+# t.string :email
+
+User.create(name:"Molly", password:"1234q", birthday: "1991-05-10", email: "mary.huerster@gmail.com")
+User.create(name:"Alan", password:"1234q", email:"alan.florendo@gmail.com")
+User.create(name:"John", password:"1234q", email:"jpberry0623@gmail.com")
+User.create(name:"Avi", password:"1234q", email: "frosenox@gmail.com" )
+User.create(name:"Anthony", password:"1234q", email:"anthony.edwardsjr@gmail.com")
+User.create(name:"Rootul", password:"1234q", email:"rootulp@gmail.com")
+
