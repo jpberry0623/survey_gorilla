@@ -10,8 +10,12 @@ $(document).ready(function() {
         url: '/surveys/'+surveyId+'/questions/create',
         dataType: "JSON",
       }).success(function(data) {
+        var rowCount = $("#survey_questions tr").length;
         console.log(data);
-        $("#survey_questions").append("<tr><td>"+data["id"]+"</td><td>"+data["prompt"]+"</td><td><a href=''>edit question</a></td></tr>");
+        $("#survey_questions").append("<tr><td>"+(rowCount+1)+"</td><td>"+data["prompt"]+"</td><td><a href=''>edit question</a></td></tr>");
+        $("#new_question").each(function(){
+            this.reset();
+        });
 
       }).fail(function(){
 
