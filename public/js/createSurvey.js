@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $(".question_choices").hide();
   $("#new_survey").submit(function(e){
     e.preventDefault();
     $.ajax({
@@ -7,19 +8,24 @@ $(document).ready(function() {
       url: "/surveys/create",
       dataType: "JSON",
     }).success(function(data) {
-      console.log(data.id);
+      console.log(data);
+      $("#new_survey").hide();
+      $("h2").html(data.name);
       $(".new_question").attr("action", "/surveys/"+data.id+"/questions/create");
       $(".new_question").attr("id", ""+data.id);
-      $(".new_question").append("<input type='text' name='prompt' placeholder='Enter Your Question Here!'>")
-      $(".new_question").append("<input type='submit' value='add your question'>")
+      $(".new_question").append("<input type='text' name='prompt' placeholder='Enter Your Question Here!' required>")
+      $(".new_question").append("<input type='submit' value='add your question'>");
     });
   });
 
+  $(function() {
+    $(".question_choices").dialog({autoOpen : false, modal : true, show : "blind", hide : "blind"});
+  });
+
+///////////
   $(".new_question").submit(function(e){
       e.preventDefault();
-      console.log(this);
       var surveyId = this.id;
-      console.log(surveyId);
       $.ajax({
         type: "POST",
         data: $(".new_question").serialize(),
@@ -27,15 +33,13 @@ $(document).ready(function() {
         dataType: "JSON",
       }).success(function(data) {
         console.log(data);
-      //   // $("#survey_questions").append("<tr><td>"+(rowCount+1)+"</td><td>"+data["prompt"]+"</td><td><a href=''>edit question</a></td></tr>");
-        $("#new_question").each(function(){
+        $(".new_question").each(function(){
             this.reset();
-        });
-
+            $(".question_choices").dialog("open");
+            return false;
+          });
       }).fail(function(){
-
+        console.log("something is wrong with the question submission");
       });
-
-
-      });
+    });
 });
