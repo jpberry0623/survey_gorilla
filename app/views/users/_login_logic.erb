@@ -7,7 +7,7 @@
       
     <% else %>
 
-      <li><a href="/users/new">Sign Up</a></li>
+      <li><a class="sign-up" href="#">Sign Up</a></li>
       <li><a href="/users/login">Login</a></li>
 
     <% end %>
@@ -23,7 +23,7 @@
 
       <%= @error if @error %>
 
-      <form action="/users/new" method="post" id="login">
+      <form action="/users/new" method="post" id="signup">
         <input type="text" name="new_user[name]" placeholder="Enter your name" required><br>
         <input type="email" name="new_user[email]" placeholder="Enter your email address" required><br>
         <input type="password" name="new_user[password]" placeholder="Choose a password" required><br>
@@ -31,7 +31,7 @@
         <% @regions.each do |reg| %>
         <input type="checkbox" name="new_user[region_id]" value=<%= reg.id %> required><%= reg.name.capitalize %><br><br>
         <% end %>
-        <input type="submit" value="Sign me up!">
+        <input class="send-form" type="submit" value="Sign me up!">
         <button class="close-me">Not Now</button>
       </form>
   </div>
