@@ -35,6 +35,7 @@ $(document).ready(function() {
         url: '/surveys/'+surveyId+'/questions/create',
         dataType: "JSON",
       }).success(function(data) {
+        $("#survey_in_progress ol").append("<li id='"+data.id+"'>"+data.prompt+"<ul></ul></li>");
         $(".new_choice").attr("action","/surveys/"+surveyId+"/questions/"+data.id+"/choices/create");
         $(".new_choice").append("<input type='hidden' name='survey_id' value="+surveyId);
         $(".new_choice").append("<input type='hidden' name='question_id' value="+data.id);
@@ -56,7 +57,11 @@ $(document).ready(function() {
       url: $(".new_choice").attr("action"),
       dataType: "JSON",
     }).success(function(data) {
-      console.log(data);
+      console.log(data.options);
+      var x;
+      for (option in data.options) {
+        $("#survey_in_progress ol li[id='"+data.question_id+"'] ul").append("<li>"+data.options[option]+"</li><br>");
+      };
     });
   })
 });
