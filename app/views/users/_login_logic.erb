@@ -1,8 +1,8 @@
 <div class="login-logic">
   <ul>
   <% if @user %>
-    <li><a href="users/<%= session[:user_id]%>">Profile Page</a></li>
     <li><a href="/users/logout">Logout</a></li>
+    <li><a href="users/<%= session[:user_id]%>">Profile Page</a></li>
   <% else %>
     <li><a href="/users/new">Sign Up</a></li>
     <li><a href="users/login">Login</a></li>

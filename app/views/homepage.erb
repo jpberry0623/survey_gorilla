@@ -12,7 +12,7 @@
       <h1> Public Surveys</h1>
       <dl>
       <% @surveys.each do |survey| %>
-        <dt><a href="/survey/<%= survey.id %>"> <%= survey.name %> </a></dt>
+        <dt><a href="/surveys/<%= survey.id %>"> <%= survey.name %> </a></dt>
           <br>
          <dd> Created by: <%= survey.get_user(survey.id) %></dd>
           <br><br>
@@ -27,8 +27,8 @@
       </ul>
     </div>
   </div>
-    <%= erb :_footer %>
 </div>
+  <%= erb :_footer %>
 
 
 
