@@ -1,11 +1,11 @@
 # NEW SURVEY
 get '/surveys/new' do
-	erb :"surveys/new"
+  erb :"surveys/new"
 end
 
 post '/surveys/create' do
-	@survey = Survey.create(name: params[:name])
-	redirect "/surveys/#{@survey.id}"
+  @survey = Survey.create(name: params[:name])
+  redirect "/surveys/#{@survey.id}"
 end
 
 # EDIT SURVEY
@@ -24,11 +24,11 @@ end
 
 # VIEW LIST OF ALL SURVEYS
 get '/surveys/all' do
-	erb :"surveys/all_surveys"
+  erb :"surveys/all_surveys"
 end
 
 # VIEW INDIVIDUAL SURVEY
 get '/surveys/:id' do
-	@survey = Survey.find(params[:id])
-	erb :"surveys/show"
+  @survey = Survey.find(params[:id])
+  erb :"surveys/show"
 end
