@@ -14,7 +14,7 @@
       <% ch = question.choices %>
     <br>
     <% ch.each do |choice| %>
-     <dd><input type="radio" name="question[<%=question.id %>]" value=<%= choice.id %> required><%= choice.label.capitalize %></dd></br>
+     <dd><input type="radio" name="question[<%=question.id %>]" value=<%= choice.id %> required><label><%= choice.label.capitalize %></label></dd></br>
     <br>
     <% end %>
 

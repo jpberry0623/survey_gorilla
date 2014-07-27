@@ -27,12 +27,12 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 // Get the element, add a click listener...
 document.getElementById("take_survey").addEventListener("click",function(e) {
-  // e.target is the clicked element!
-  // If it was a list item
-  console.log(e.target)
-  if(e.target && e.target.nodeName == "LI") {
-    // List item found!  Output the ID!
-    console.log("List item ",e.target.id.replace("post-")," was clicked!");
+  x = e.parentNode
+  console.log(e.target.name)
+  console.log(e.Type == "radio")
+  if(e.target.type == "radio") {
+    // e.parent.setAttribute('style', 'color: red');
+    e.target.style.color = "color";
   }
 });
 
