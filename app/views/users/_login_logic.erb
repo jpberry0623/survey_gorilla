@@ -1,12 +1,14 @@
 <div class="login-logic">
   <ul>
+
   <% if @user = session[:user_id]%>
+
     <li><a href="/users/logout">Logout</a></li>
     <!-- <li><a href="users/<%= session[:user_id]%>">Profile Page</a></li> -->
     <!-- redirect to profile page at login so do not need login link -->
   <% else %>
     <li><a href="/users/new">Sign Up</a></li>
-    <li><a href="users/login">Login</a></li>
+    <li><a href="/users/login">Login</a></li>
   <% end %>
     <!-- <li><a href="result/survey/3">View Results</a></li> -->
     <!-- removed since relts are automatically give via chartkick -->
