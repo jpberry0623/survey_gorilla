@@ -15,5 +15,4 @@ class User < ActiveRecord::Base
     survey_objs = survey_ids.each_with_object([]) { |s, a| a << Survey.find(s)  }
     return survey_objs
   end
-
 end

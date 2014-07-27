@@ -120,6 +120,7 @@ dd{
   margin-top: -20px;
 }
 
+
 /****************************/
 
 /*  DROP DOWN STYLE */
@@ -142,5 +143,10 @@ dd{
   top:0;
   right: 0;
   margin: 1em 1em;
+}
+
+
+li {
+  margin-left: 50px;
 }
 

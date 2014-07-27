@@ -1,0 +1,10 @@
+<div class="container">
+<h2>Survey Results</h2>
+<h2>Name:  <%= @survey.name%></h2>
+<br>
+<% questions = Question.where(survey_id: @survey.id ) %>
+  <% questions.each do |question| %>
+    <%= question.display_question(@results_hash) %>
+    <%= pie_chart(question.prepare_chart(@results_hash)) %>
+  <% end %>
+</div>

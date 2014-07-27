@@ -1,15 +1,18 @@
 <div class="login-logic">
   <ul>
-  <% if @user %>
-    <li><a href="/users/logout">Logout</a></li>
-    <li><a href="users/<%= session[:user_id]%>">Profile Page</a></li>
-  <% else %>
 
-    <li><a class="sign-up" href="#">Sign Up</a></li>
-    <li><a href="users/login">Login</a></li>
-  <% end %>
-    <li><a href="result/survey/3">View Results</a></li>
-   </ul>
+    <% if @user = session[:user_id]%>
+
+      <li><a href="/users/logout">Logout</a></li>
+      
+    <% else %>
+
+      <li><a href="/users/new">Sign Up</a></li>
+      <li><a href="/users/login">Login</a></li>
+
+    <% end %>
+
+  </ul>
   <br><br>
 
   <div class="dropdown-hidden signupdd">
