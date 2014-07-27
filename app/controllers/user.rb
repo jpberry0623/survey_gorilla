@@ -24,7 +24,6 @@ post '/users/login' do
 	@user = User.find_by_email(params[:email])
 	p params[:email].inspect
 	if @user && @user.authenticate(params[:password])
-		# p @user.id
 		session[:user_id] = @user.id
 		redirect "/users/#{@user.id}"
 	else
