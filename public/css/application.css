@@ -123,3 +123,17 @@ dd{
 li {
   margin-left: 50px;
 }
+#resultsbutton{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#resultsbutton:hover{
+  background-color: black;
+  color: white;
+  /* this can be changed, just thought there shoulb be a link back to suverys here*/
+}
+a:visited{
+  color: black;
+}
+
