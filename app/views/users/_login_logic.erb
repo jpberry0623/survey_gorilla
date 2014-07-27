@@ -3,7 +3,7 @@
 
   <% if @user = session[:user_id] %>
 
-    <li><a href="/users/logout">Logout</a></li>
+    <li><a class="logout-button" href="/users/logout">Logout</a></li>
   <% else %>
     <li><a class="sign-up-button" href="/users/new">Sign Up</a></li>
     <li><a class="login-button" href="/users/login">Login</a></li>
