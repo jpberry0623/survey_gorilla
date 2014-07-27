@@ -1,6 +1,7 @@
 class Result < ActiveRecord::Base
   belongs_to :user # the taker
   belongs_to :choice
+  belongs_to :result
 
 
   def get_user(id)

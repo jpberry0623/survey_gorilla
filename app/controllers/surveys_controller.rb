@@ -75,4 +75,14 @@ get '/surveys/:id/take' do
 	erb :"surveys/survey_take"
 end
 
+post '/surveys/:id/take' do
+	p "++++++++++++++++++++++++++++++++"
+	p session[:user_id]
+	p question = params[:question]
+	question.each_pair do |key, value|
+		Result.create(user_id: session[:user_id], choice_id: value.to_i)
+	end
+  redirect('/')
+end
+
 
