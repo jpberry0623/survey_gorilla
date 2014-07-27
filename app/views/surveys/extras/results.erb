@@ -1,15 +1,15 @@
-<h2>Survey Results</h2>
 <div class="container">
-<h2>Survey name:  <%= @survey.name%></h2>
+<h2>Survey Results</h2>
+<h2>Name:  <%= @survey.name%></h2>
 <br>
 <% questions = Question.where(survey_id: @survey.id ) %>
   <% questions.each do |question| %>
-   <ul>Question:  <%=question.prompt  %></ul>
-    <% ch = question.choices %>
-    <br>
-    <% ch.each do |choice| %>
+   <ul>Question:  <%= question.prompt  %></ul>
+    <% data = [] %>
+    <% question.choices.each do |choice| %>
+    <% data << [choice.label, @results_hash[choice.id]] %>
     <li><%= @results_hash[choice.id] %>: <%= choice.label %> </li>
-    <br>
     <% end %>
+    <%= pie_chart(data) %>
   <% end %>
 </div>
