@@ -13,8 +13,12 @@
   <br><br>
 
   <div class="dropdown-hidden signupdd">
+
+    <aside><a href="#" class="close-me">close window</a></aside>
   
     <h3>Signup</h3>
+
+      <%= @error if @error %>
 
       <form action="/users/new" method="post" id="login">
         <input type="text" name="new_user[name]" placeholder="Enter your name" required><br>
@@ -25,7 +29,7 @@
         <input type="checkbox" name="new_user[region_id]" value=<%= reg.id %> required><%= reg.name.capitalize %><br><br>
         <% end %>
         <input type="submit" value="Sign me up!">
-        <button>Not Now</button>
+        <button class="close-me">Not Now</button>
       </form>
   </div>
 </div>

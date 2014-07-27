@@ -2,9 +2,25 @@ $(document).ready(function() {
   var surveyId = window.location.pathname.split('/')[2];
   
   var signUpButt = document.getElementsByClassName("sign-up")[0];
-  hi(signUpButt);
+  
+  var signUpSubmit = document.getElementsByClassName("sign-up")[0];
+
+  var closeWindowButt = document.getElementsByClassName("close-me")[0];
 
   signUpButt.addEventListener("click", showMe, false);
+  closeWindowButt.addEventListener("click", hideMe, false);
+
+
+  signUpSubmit.addEventListener("click", function(event){
+    $.ajax({
+      type: 'POST',
+      url: "/color"
+    })
+
+
+
+  }, false);
+
 
   $("#new_question").submit(function(e){
       e.preventDefault();
@@ -40,5 +56,13 @@ var alertMe = function(){
 var showMe = function() {
   dd = document.getElementsByClassName("signupdd")[0];
   dd.className = dd.className + " " + "dropdown-show";
+}
+
+var hideMe = function() {
+  dd = document.getElementsByClassName("dropdown-show");
+  for (var el in dd) {
+    dd[el].classList.remove("dropdown-show");
+  }
+  hi(dd);
 }
 
