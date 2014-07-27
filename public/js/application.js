@@ -4,7 +4,7 @@ $(document).ready(function() {
   var signUpButt = document.getElementsByClassName("sign-up")[0];
   hi(signUpButt);
 
-  signUpButt.addEventListener("click", alertMe, false);
+  signUpButt.addEventListener("click", showMe, false);
 
   $("#new_question").submit(function(e){
       e.preventDefault();
@@ -35,5 +35,10 @@ var hi = function(wazzup){
 
 var alertMe = function(){
   alert("i iz listening");
+}
+
+var showMe = function() {
+  dd = document.getElementsByClassName("signupdd")[0];
+  dd.className = dd.className + " " + "dropdown-show";
 }
 

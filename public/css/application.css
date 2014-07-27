@@ -114,7 +114,7 @@ dt{
 /****************************/
 
 /*  DROP DOWN STYLE */
-.dropdown {
+.dropdown-hidden {
   visibility: hidden;
   z-index: 3;
   position: fixed; 
@@ -125,6 +125,7 @@ dt{
   border: 0.15em black solid;
 }
 
+.dropdown-show {visibility: visible;}
 
 
 
