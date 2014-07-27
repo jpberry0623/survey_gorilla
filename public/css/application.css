@@ -44,7 +44,7 @@ header h1 {
 footer{
   height: 100px;
   background-color: black;
-  margin-top: 3em;
+
 }
 .nav_bar{
   padding: 5px;
@@ -106,9 +106,18 @@ footer{
   border: 1px solid black;
   overflow: hidden;
 }
+.submit{
+  float:right;
+}
+form dl dt {
+  margin-bottom: 10px;
+}
 
 dt{
-  font-size: 25px;
+  font-size: 20px;
+}
+dd{
+  margin-top: -20px;
 }
 
 /****************************/

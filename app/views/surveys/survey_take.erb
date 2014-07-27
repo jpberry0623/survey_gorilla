@@ -1,0 +1,27 @@
+<%= erb :_header %>
+<div class="container">
+<div class="nav_bar">
+     <%= erb :'users/_login_logic' %>
+  </div>
+<div class="content">
+<h2>Survey  <%= @survey.name%></h2>
+<br>
+<% questions = Question.where(survey_id: @survey.id ) %>
+  <form action="/surveys/<%=@survey.id %>/take" method="post" id="login">
+    <% questions.each do |question| %>
+      <dl>
+     <dt>Question: <%=question.prompt  %> </dt>
+      <% ch = question.choices %>
+    <br>
+    <% ch.each do |choice| %>
+     <dd><input type="radio" name="question[<%=question.id %>]" value=<%= choice.id %> required><%= choice.label.capitalize %></dd><br><br>
+    <br>
+    <% end %>
+
+   </dl>
+  <% end %>
+  <div class="submit"> <input type="submit" value="submit"></div>
+</div>
+</div>
+
+<%= erb :_footer %>
