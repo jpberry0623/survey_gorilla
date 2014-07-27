@@ -1,6 +1,6 @@
 <div class="login-logic">
   <ul>
-  <% if @user = session[:user_id] %>
+  <% if @user %>
     <li><a href="/users/logout">Logout</a></li>
     <!-- <li><a href="users/<%= session[:user_id]%>">Profile Page</a></li> -->
     <!-- redirect to profile page at login so do not need login link -->
