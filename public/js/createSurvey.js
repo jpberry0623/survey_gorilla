@@ -48,6 +48,11 @@ $(document).ready(function() {
         console.log("something is wrong with the question submission");
       });
     });
+  $("#add_choice").click(function(e){
+    console.log(e);
+    var numChoices = $(".new_choice input[type='text']").length;
+    $(".new_choice").append("<input type='text' placeholder='new option' name='options[option"+(numChoices+1)+"]''><br>");
+  })
   $(".new_choice").submit(function(e){
     e.preventDefault();
     $( ".question_choices" ).dialog( "close" );
