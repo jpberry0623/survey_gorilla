@@ -110,3 +110,21 @@ footer{
 dt{
   font-size: 25px;
 }
+
+/****************************/
+
+/*  DROP DOWN STYLE */
+.dropdown {
+  visibility: hidden;
+  z-index: 3;
+  position: fixed; 
+  top: 20%; 
+  left: 30%; 
+  background-color: white;
+  padding: 2em 4em; 
+  border: 0.15em black solid;
+}
+
+
+
+
