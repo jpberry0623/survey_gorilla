@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   has_many :surveys
   has_one :region
 
+  validates :name, :email, presence: true
+
+  validates :email, uniqueness: true
+  validates :name, uniqueness: true
+
   def taken_surveys(idnum)
     results = Result.where(user_id: idnum)
     choice_ids = results.each_with_object([]) { |r, a| a << r.choice_id  }
