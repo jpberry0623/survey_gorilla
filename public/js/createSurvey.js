@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  // Create survey
   $(".question_choices").hide();
   $("#new_survey").submit(function(e){
     e.preventDefault();
@@ -8,7 +10,7 @@ $(document).ready(function() {
       url: "/surveys/create",
       dataType: "JSON",
     }).success(function(data) {
-      console.log(data);
+      // console.log(data);
       $("#new_survey").hide();
       $("h2").html(data.name);
       $(".new_question").attr("action", "/surveys/"+data.id+"/questions/create");
@@ -18,11 +20,12 @@ $(document).ready(function() {
     });
   });
 
+  // Initialize question choices dialog
   $(function() {
     $(".question_choices").dialog({autoOpen : false, modal : true, show : "blind", hide : "blind"});
   });
 
-///////////
+  // Create question
   $(".new_question").submit(function(e){
       e.preventDefault();
       var surveyId = this.id;
@@ -33,6 +36,7 @@ $(document).ready(function() {
         dataType: "JSON",
       }).success(function(data) {
         console.log(data);
+        $(".new_choice").attr("action","/surveys/"+surveyId+"/questions/"+data.id+"/choices/create");
         $(".new_question").each(function(){
             this.reset();
             $(".question_choices").dialog("open");
@@ -42,4 +46,20 @@ $(document).ready(function() {
         console.log("something is wrong with the question submission");
       });
     });
+  $(".new_choice").submit(function(e){
+    e.preventDefault();
+    console.log(e);
+    console.log(this);
+    var questionId = e.id;
+    var surveyId = e.survey_id;
+    $.ajax({
+      type: "POST",
+      data: $(".new_choice").serialize(),
+      url: "/surveys/"+surveyId+"/questions/"+questionId+"/choices/create",
+      dataType: "JSON",
+    }).success(function(data) {
+      this.reset();
+      console.log(data);
+    });
+  })
 });

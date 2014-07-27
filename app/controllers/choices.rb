@@ -7,7 +7,8 @@ end
 
 
 post '/surveys/:survey_id/questions/:question_id/choices/create' do
-
+  puts "Params:"
+  p params
 end
 
 
@@ -20,7 +21,7 @@ get '/surveys/:survey_id/questions/:question_id/choices/:id/edit' do
 end
 
 patch '/surveys/:survey_id/questions/:question_id/choices/:id' do
-	
+
 end
 
 
