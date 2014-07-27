@@ -5,7 +5,8 @@ end
 
 post '/surveys/create' do
   @survey = Survey.create(name: params[:name])
-  redirect "/surveys/#{@survey.id}"
+  # redirect "/surveys/#{@survey.id}"
+  @survey.to_json
 end
 
 # EDIT SURVEY
