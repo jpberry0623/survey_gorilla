@@ -51,18 +51,18 @@ var hi = function(wazzup){
 
 var alertMe = function(){
   alert("i iz listening");
-}
+};
 
 var showMe = function() {
   dd = document.getElementsByClassName("signupdd")[0];
   dd.className = dd.className + " " + "dropdown-show";
-}
+};
 
 var hideMe = function() {
   dd = document.getElementsByClassName("dropdown-show");
   for (var el in dd) {
     dd[el].classList.remove("dropdown-show");
   }
-  hi(dd);
-}
+  // hi(dd);
+};
 
