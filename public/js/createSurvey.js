@@ -35,7 +35,7 @@ $(document).ready(function() {
         url: '/surveys/'+surveyId+'/questions/create',
         dataType: "JSON",
       }).success(function(data) {
-        // console.log(data);
+        console.log(data);
         $(".new_choice").attr("action","/surveys/"+surveyId+"/questions/"+data.id+"/choices/create");
         $(".new_question").each(function(){
             this.reset();
@@ -50,19 +50,16 @@ $(document).ready(function() {
     e.preventDefault();
     console.log(e);
     console.log(this);
+    var questionId = e.id;
+    var surveyId = e.survey_id;
     $.ajax({
       type: "POST",
       data: $(".new_choice").serialize(),
-      url: "/surveys/"+surveyId+"/questions/"+data.id+"/choices/create",
+      url: "/surveys/"+surveyId+"/questions/"+questionId+"/choices/create",
       dataType: "JSON",
     }).success(function(data) {
+      this.reset();
       console.log(data);
-      // $("#new_survey").hide();
-      // $("h2").html(data.name);
-      // $(".new_question").attr("action", "/surveys/"+data.id+"/questions/create");
-      // $(".new_question").attr("id", ""+data.id);
-      // $(".new_question").append("<input type='text' name='prompt' placeholder='Enter Your Question Here!' required>")
-      // $(".new_question").append("<input type='submit' value='add your question'>");
     });
   })
 });
