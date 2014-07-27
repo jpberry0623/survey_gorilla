@@ -19,6 +19,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem "chartkick"
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
