@@ -15,7 +15,7 @@ end
 # USER LOGIN STUFF
 
 get '/users/login' do
-	@errors = 
+	@errors =
 	erb :'users/login'
 end
 
@@ -42,22 +42,26 @@ end
 # USER PROFILE
 get '/users/:id' do
 	@user = User.find(params[:id])
-	# @surveys_taken = @user.surveys
-	@surveys = Survey.all
+
+	@surveys_written = Survey.where(user_id: @user.id)
+	@surveys_taken = @user.taken_surveys(@user.id)
+	#@surveys = Survey.all
 	erb :"users/profile"
 end
 
 # EDIT USER PROFILE
 
 get '/users/:id/edit' do
+	@user = User.find(params[:id])
 	erb :"users/profile_edit"
-	# ALAN TO DO 
+	# ALAN TO DO
 	# NOTE TO SELF, ALAN (user the :update_user hash to hold changed data)
 end
 
 patch '/users/:id' do
 	@user = User.find(params[:id])
-	@user.update(params[:update_user])
+	@user.update(params[:user])
+	redirect to ("/users/#{@user.id}")
 end
 
 
@@ -68,7 +72,7 @@ get '/users/:id/delete' do
 	erb :"users/delete_profile_warning"
 end
 
-delete '/users/:id/delete' do  
+delete '/users/:id/delete' do
 	# BUG:  Not Currently Working
 	# Alan to Fix
 		# Go thru all of the surveys that this author created
