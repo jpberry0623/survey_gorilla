@@ -59,7 +59,7 @@ footer{
   width: 80%;
   padding-left: 3em;
   padding-right: 3em;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px 10px 10px 10px;
   background-color: #BDBDBD;
   margin: auto;
   overflow: auto;
@@ -69,14 +69,18 @@ footer{
   float: right;
 }
 
-.survey-links{
+.survey-links {
   float: right;
   color:#F2F2F2;
 }
 
-.survey-links a{
+.survey-links a:visited{
   color:#F2F2F2;
 }
+
+/*.survey-links a {
+  color: white;
+}*/
 
 .homeh1{
   width: 100%;
@@ -110,12 +114,18 @@ footer{
 .container{
   width: 900px;
   margin: auto;
-  border: 1px solid black;
+  border: 5px solid black;
+  padding: 10px;
   overflow: hidden;
 }
 .submit{
   float:right;
 }
+
+#profile_stats{
+
+}
+
 form dl dt {
   margin-bottom: 10px;
 }
@@ -140,7 +150,7 @@ li {
   color: white;
   /* this can be changed, just thought there shoulb be a link back to suverys here*/
 }
-a:visited{
+.nav_bar a:visited{
   color: black;
 }
 
