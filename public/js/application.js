@@ -25,4 +25,15 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+// Get the element, add a click listener...
+document.getElementById("take_survey").addEventListener("click",function(e) {
+  // e.target is the clicked element!
+  // If it was a list item
+  console.log(e.target)
+  if(e.target && e.target.nodeName == "LI") {
+    // List item found!  Output the ID!
+    console.log("List item ",e.target.id.replace("post-")," was clicked!");
+  }
+});
+
 });

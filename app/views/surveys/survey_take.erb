@@ -7,14 +7,14 @@
 <h2>Survey  <%= @survey.name%></h2>
 <br>
 <% questions = Question.where(survey_id: @survey.id ) %>
-  <form action="/surveys/<%=@survey.id %>/take" method="post" id="login">
+  <form action="/surveys/<%=@survey.id %>/take" method="post" id="take_survey">
     <% questions.each do |question| %>
       <dl>
      <dt>Question: <%=question.prompt  %> </dt>
       <% ch = question.choices %>
     <br>
     <% ch.each do |choice| %>
-     <dd><input type="radio" name="question[<%=question.id %>]" value=<%= choice.id %> required><%= choice.label.capitalize %></dd><br><br>
+     <dd><input type="radio" name="question[<%=question.id %>]" value=<%= choice.id %> required><%= choice.label.capitalize %></dd></br>
     <br>
     <% end %>
 
