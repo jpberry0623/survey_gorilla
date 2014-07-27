@@ -26,7 +26,7 @@ post '/users/login' do
 	if @user && @user.authenticate(params[:password])
 		# p @user.id
 		session[:user_id] = @user.id
-		redirect "/"
+		redirect "/users/#{@user.id}"
 	else
 		session[:errors] = 'derp'
 		redirect "/users/login"
