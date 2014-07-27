@@ -19,12 +19,12 @@
 
   <title>SURVEY GORILLA A LA KIM</title>
 </head>
+<% current_user %>
 <%= erb :_header %>
   <div class="nav_bar">
      <%= erb :'users/_login_logic' %>
   </div>
 <body>
-  <% current_user %>
   <%= yield %>
 </body>
 </html>
