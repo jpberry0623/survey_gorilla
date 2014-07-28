@@ -1,11 +1,5 @@
 # CREATE NEW SURVEY QUESTION CHOICE
 
-
-# get '/surveys/:survey_id/questions/:question_id/choices/new' do
-
-# end
-
-
 post '/surveys/:survey_id/questions/:question_id/choices/create' do
   @q = Question.find(params["question_id"])
   params["options"].each do |key, val|

@@ -35,6 +35,7 @@ $(document).ready(function() {
         url: '/surveys/'+surveyId+'/questions/create',
         dataType: "JSON",
       }).success(function(data) {
+        $("#survey_in_progress ol").append("<li id='"+data.id+"'>"+data.prompt+"<ul></ul></li>");
         $(".new_choice").attr("action","/surveys/"+surveyId+"/questions/"+data.id+"/choices/create");
         $(".new_choice").append("<input type='hidden' name='survey_id' value="+surveyId);
         $(".new_choice").append("<input type='hidden' name='question_id' value="+data.id);
@@ -47,6 +48,11 @@ $(document).ready(function() {
         console.log("something is wrong with the question submission");
       });
     });
+  $("#add_choice").click(function(e){
+    console.log(e);
+    var numChoices = $(".new_choice input[type='text']").length;
+    $(".new_choice").append("<input type='text' placeholder='new option' name='options[option"+(numChoices+1)+"]''><br>");
+  })
   $(".new_choice").submit(function(e){
     e.preventDefault();
     $( ".question_choices" ).dialog( "close" );
@@ -56,7 +62,11 @@ $(document).ready(function() {
       url: $(".new_choice").attr("action"),
       dataType: "JSON",
     }).success(function(data) {
-      console.log(data);
+      console.log(data.options);
+      var x;
+      for (option in data.options) {
+        $("#survey_in_progress ol li[id='"+data.question_id+"'] ul").append("<li>"+data.options[option]+"</li><br>");
+      };
     });
   })
 });
