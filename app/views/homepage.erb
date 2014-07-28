@@ -8,7 +8,7 @@
       <% @surveys.each do |survey| %>
         <dt><a href="/surveys/<%= survey.id %>"> <%= survey.name %> </a></dt>
           <br>
-         <dd> Created by: <%= survey.get_user(survey.id) %></dd>
+         <dd> Created by: <%= survey.get_user %></dd>
           <br><br>
       <% end %>
       </dl>

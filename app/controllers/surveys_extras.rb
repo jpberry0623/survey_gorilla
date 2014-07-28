@@ -12,8 +12,6 @@ get '/surveys/:id/take' do
 end
 
 post '/surveys/:id/take' do
-  # p "++++++++++++++++++++++++++++++++"
-  # p session[:user_id]
   questions = params[:question]
   questions.each_pair do |key, value|
     Result.create(user_id: session[:user_id], choice_id: value.to_i)
