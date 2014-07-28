@@ -21,6 +21,9 @@ gem 'shotgun'
 
 gem "chartkick"
 
+# gem 'digest/md5'
+
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
