@@ -9,7 +9,7 @@ end
 post '/users/create' do
 	@user = User.create(params[:new_user])
 	session[:user_id] = @user.id
-	
+	# current_user
 	@user.to_json
 	# redirect "/users/#{@user.id}"
 end

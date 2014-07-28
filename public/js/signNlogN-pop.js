@@ -20,14 +20,18 @@ $(document).ready(function() {
   
   $("#signup").submit(function(e){
     e.preventDefault();
+    
     $.ajax({
       type: "POST",
       data: $("#signup").serialize(), 
       url: "/users/create",
       dataType: "JSON",
     }).success(function(data) {
-      console.log(data);
-      $( ".login-logic" ).load("/");
+      var logDiv = $(".login-logic")[0];
+      console.log(logDiv);
+      hideMe();
+      $( ".login-logic" )[0].load("_login_logic.erb");
+      // $('.login-logic').html("/");
       // $(".new_question").attr("action", "/surveys/"+data.id+"/questions/create");
       // $(".new_question").attr("id", ""+data.id);
       // $(".new_question").append("<input type='text' name='prompt' placeholder='Enter Your Question Here!'>")
