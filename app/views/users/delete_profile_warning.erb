@@ -1,13 +1,14 @@
-<h2>WARNING</h2>
+<div class="container">
+	<div class="content">
+		<h2>WARNING</h2>
 
-<p><strong>You are about to delete your profile.  This action, once completed, will be irreversible.</strong></p>
+		<p><strong>You are about to delete your profile.  This action, once completed, will be irreversible.</strong></p>
 
-<p><strong>Confirm My Destruction:</strong></p>
+		<p><strong>Confirm My Destruction:</strong></p>
 
-
-
-<form action="/users/<%=@user.id%>/delete" method="post">
-	<input type="hidden" name="_method" value="delete">
-  <input type="submit" value="DESTROY ME FOREVER!">
-</form>
-
+		<form action="/users/<%=@user.id%>/delete" method="post">
+			<input type="hidden" name="_method" value="delete">
+		  <input type="submit" value="DESTROY ME FOREVER!">
+		</form>
+	</div>
+</div>

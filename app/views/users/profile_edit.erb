@@ -1,32 +1,22 @@
-<div id="container">
+<div class="container">
+  <div class="content">
 
-<h4>Your Details</h4>
-<form action="/users/<%=@user.id%>" method="post">
-<input type="hidden" name="_method" value="patch">
+    <h4>Your Details</h4>
+    <form action="/users/<%=@user.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
 
-  <strong>NAME</strong> <br>
-  <input type="text" name="user[name]" value="<%= @user.name %>"><br><br>
+      <strong>NAME</strong> <br>
+      <input type="text" name="user[name]" value="<%= @user.name %>"><br><br>
 
-  <strong>BIRTHDAY</strong> <br>
-  <input type="text" name="user[birthday]" value="<%= @user.birthday %>"><br><br>
+      <strong>BIRTHDAY</strong> <br>
+      <input type="text" name="user[birthday]" value="<%= @user.birthday %>"><br><br>
 
-  <strong>EMAIL</strong> <br>
-  <input type="text" name="user[email]" value="<%= @user.email %>"><br><br>
+      <strong>EMAIL</strong> <br>
+      <input type="text" name="user[email]" value="<%= @user.email %>"><br><br>
 
-  <button type="submit">EDIT PROFILE</button>
-</form><br><br>
-
-
-<%= erb :_footer %>
+      <button type="submit">EDIT PROFILE</button>
+    </form><br><br>
+    </div>
+  </div>
+  <%= erb :_footer %>
 </div>
-
-<style type="text/css">
-  #container {
-    margin-left: 50px;
-  }
-
-  #profile_stats td:first-child {
-    width: 150px;
-  }
-
-</style>
