@@ -1,9 +1,29 @@
-<h1>You Are Making a New Survey !!</h1>
+<h2>You Are Making a New Survey!</h2>
 
-<form action="/surveys/create" method="POST">
-	
+<form action="/surveys/create" method="POST" id="new_survey">
+
 	<input type="text" name="name" placeholder="Please Enter Your Survey Title">
 
 	<input type="submit" value="Submit">
 </form>
 
+<form  method="POST" class="new_question">
+</form>
+
+<div class="question_choices" class="ui-dialog" title="Add choices">
+  <p>You must provide at least once choice for each question.</p>
+  <form method="POST" class="new_choice">
+    <input type="text" placeholder="Option 1" name="options[option1]" required><br>
+    <input type="text" placeholder="Option 2" name="options[option2]"><br><br>
+    <input type="button" value="add another choice" id="add_choice">
+    <input type="submit" value="Add choices to question"><br><br>
+  </form>
+</div>
+
+<div id="survey_in_progress">
+  <ol></ol>
+</div>
+
+<script src="/js/questionChoices.js"></script>
+<script src="/js/createSurvey.js"></script>
+<script src="/js/createQuestion.js"></script>

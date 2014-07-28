@@ -1,19 +1,33 @@
-
 <div class="container">
-  <h1> Welcome to Survey Gorilla! </h1>
-  <%= erb :'users/_login_logic' %>
-  <% @surveys.each do |survey| %>
-    <a href="/survey/<%= survey.id %>"> <%= survey.name %> </a>
-    <br>
-    Created by: <%= survey.get_user(survey.user_id) %>
-    <br><br>
-  <% end %>
+  <div class="content">
+    <div class="homeh1"><h1> Welcome to Survey  Gorilla! </h1>
+    </div>
+    <div class="survey">
+      <h1> Public Surveys</h1>
+      <dl>
+      <% @surveys.each do |survey| %>
+        <dt><a href="/surveys/<%= survey.id %>"> <%= survey.name %> </a></dt>
+          <br>
+         <dd> Created by: <%= survey.get_user %></dd>
+          <br><br>
+      <% end %>
+      </dl>
+    </div>
+    <div class="todo">
+      <h3>What would you like to do?</h3>
+      <ul>
+        <% current_user %>
+        <% if @current_user && @current_user.id == session[:user_id]%>
+          <li><a href="/surveys/all">Take a Survey</a></li>
+          <li><a href="/surveys/new">Create a Survey</a></li>
+          <li><a href="/users/<%= @current_user.id %>">View Profile</a></li>
+        <% else %>
+          <li><a href="/surveys/all">Take a Survey</a></li>
+          <li><a href="/surveys/new">Create a Survey</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
-
-<h3>What would you like to do?</h3>
-<ul>
-	
-	<li><a href="/surveys/all">Take a Survey</a></li>
-	<li>Create a Survey</li>
-</ul>
+<%= erb :_footer %>
 

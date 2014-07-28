@@ -1,12 +1,23 @@
-<h3>Signup</h3>
+<div class="container">
+  <div class="content">
+	<h3>Signup</h3>
 
-<form action="/users/new" method="post" id="login">
-  <input type="text" name="new_user[name]" placeholder="Enter your name" required><br>
-  <input type="email" name="new_user[email]" placeholder="Enter your email address" required><br>
-  <input type="password" name="new_user[password]" placeholder="Choose a password" required><br>
-  <input type="date" name="new_user[birthday]" placeholder="Enter your birthday" required><br>
-  <% @regions.each do |reg| %>
-  <input type="checkbox" name="new_user[region_id]" value=<%= reg.id %> required><%= reg.name.capitalize %><br><br>
-  <% end %>
-  <input type="submit" value="Sign me up">
-</form>
+	<form action="/users/create" method="post" id="login">
+		<label>name</label>
+	  <input type="text" name="new_user[name]" placeholder="Enter your name" size="25"required><br>
+	  <label>email</label>
+	  <input type="email" name="new_user[email]" size="25" placeholder="Enter your email address" required><br>
+	  <label>Password</label>
+	  <input type="password" name="new_user[password]" placeholder="Choose a password" required><br>
+	  <label>Birthday</label>
+	  <input type="date" name="new_user[birthday]" size="30" placeholder="Enter your birthday" required><br>
+	  <label>Region</label>
+	  <br><br>
+	  <% @regions.each do |reg| %>
+	  <input type="radio" name="new_user[region_id]" value=<%= reg.id %> required><%= reg.name.capitalize %><br><br>
+	  <% end %>
+	  <input type="submit" value="Sign me up">
+	</form>
+  </div>
+</div>
+<%= erb :_footer %>

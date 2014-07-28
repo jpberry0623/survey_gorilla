@@ -4,3 +4,180 @@ input:required:invalid {
 input:required:valid {
 	background-color: rgba(0,255,0,0.1);
   }
+
+header{
+  padding: 10px;
+  margin-top: -20px;
+  width: 100%;
+  height: 150px;
+  background-color: black;
+}
+
+html{
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+li a{
+  width: 60px;
+  padding: 0 10px;
+}
+.nav_bar a:hover{
+  box-shadow: 0px 0px 10px #888888;
+
+}
+h3{
+   color:#1C1C1C;
+}
+
+header h1 {
+  text-align: center;
+  color:#848484;
+  font-size: 6.25em;
+  margin-top: -0.1px;
+}
+footer{
+  height: 100px;
+  background-color: black;
+}
+.nav_bar{
+  padding: 5px;
+  height: 50px;
+}
+.nav_bar a:link{
+  color: black;
+}
+.content{
+  width: 80%;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 1.5em;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #BDBDBD;
+  margin: auto;
+  overflow: auto;
+  border: 1px solid black;
+    box-shadow: 0px 0px 5px #888888;
+
+}
+.block{
+  display: block;
+}
+.margin{
+  margin-bottom: 200px;
+}
+
+.login-logic{
+  float: right;
+}
+
+.survey-links {
+  float: right;
+  color:#F2F2F2;
+}
+
+.survey-links a:visited{
+  color:#F2F2F2;
+}
+
+/*.survey-links a {
+  color: white;
+}*/
+
+.homeh1{
+  width: 100%;
+  padding-top: 5px;
+  border-bottom: 1px solid black;
+}
+.survey{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.survey a:link{
+  color:#1C1C1C;
+}
+
+.todo{
+  float: left ;
+  width: 40%;
+}
+
+.todo a{
+  color:black;
+}
+
+.todo li{
+  font-size: 1.25em;
+  line-height: 2em;
+}
+
+.container{
+  width: 900px;
+  margin: auto;
+/*  border: 5px solid black;
+*/  padding: 10px;
+  overflow: hidden;
+}
+.submit{
+  float:right;
+}
+
+#profile_stats{
+
+}
+
+form dl dt {
+  margin-bottom: 10px;
+}
+
+dt{
+  font-size: 20px;
+}
+dd{
+  margin-top: -20px;
+}
+
+li {
+  margin-left: 50px;
+}
+#resultsbutton{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#resultsbutton:hover{
+  background-color: black;
+  color: white;
+  /* this can be changed, just thought there shoulb be a link back to suverys here*/
+}
+.nav_bar a:visited{
+  color: black;
+}
+
+.sign-up-button, .login-button, .logout-button{
+    font-size: 1.5em;
+}
+
+.banana{
+width: 100px;
+height: 100px;
+/*margin-right: 20px;*/
+margin-top: -5px;
+/*float: right;*/
+}
+.gorilla{
+width: 150px;
+height: 150px;
+/*margin-left: 20px;
+margin-top: -200px;
+float: left;*/
+}

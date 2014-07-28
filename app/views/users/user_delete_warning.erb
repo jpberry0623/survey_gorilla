@@ -1,0 +1,13 @@
+<h2>WARNING</h2>
+
+<p><strong>You are about to delete your profile.  This action, once completed, will be irreversible.</strong></p>
+
+<p><strong>Confirm My Destruction:</strong></p>
+
+
+
+<form action="/users/<%=@user.id%>" method="post">
+	<input type="hidden" name="_method" value="patch">
+  <input type="submit" value="DESTROY ME FOREVER!">
+</form>
+
