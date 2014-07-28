@@ -6,7 +6,7 @@
       <h1> Public Surveys</h1>
       <dl>
       <% @surveys.each do |survey| %>
-        <dt><a href="/surveys/<%= survey.id %>"> <%= survey.name %> </a></dt>
+        <dt><a href="/surveys/<%= survey.id %>/take"> <%= survey.name %> </a></dt>
           <br>
          <dd> Created by: <%= survey.get_user %></dd>
           <br><br>

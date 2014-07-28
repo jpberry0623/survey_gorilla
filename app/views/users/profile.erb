@@ -1,58 +1,47 @@
-<div id="container">
+<div class="container">
+  <div class="content">
+    <h4>Your Details</h4>
 
-<h4>Your Details</h4>
+    <image class="profile" src="http://www.gravatar.com/avatar/<%=gravatar_hash(@user.email)%>">
 
-<image class="profile" src="http://www.gravatar.com/avatar/<%=gravatar_hash(@user.email)%>">
-
-<table id="profile_stats">
-  <td>NAME</td><td><%= @user.name %></td></tr>
-  <td>BIRTHDAY</td><td><%= @user.birthday %></td></tr>
-  <td>EMAIL</td><td><%= @user.email %></td></tr>
-</table><br>
-
-
-<form action="/users/<%=@user.id%>/edit" method="get">
-  <button type="submit">EDIT PROFILE</button>
-</form><br><br>
-
-<form action="/surveys/new" method="get">
-  <button type="submit">CREATE NEW SURVEY</button>
-</form><br><br>
-
-<form action="/users/<%=@user.id%>/delete" method="get">
-  <input type="submit" value="DELETE PROFILE">
-</form>
+    <table id="profile_stats">
+      <td>NAME</td><td><%= @user.name %></td></tr>
+      <td>BIRTHDAY</td><td><%= @user.birthday %></td></tr>
+      <td>EMAIL</td><td><%= @user.email %></td></tr>
+    </table><br>
 
 
-<!-- NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE -->
-<h4>Surveys I Wrote</h4>
-<!-- Don't display surveys if nil -->
-<% if @surveys_written != nil %>
-  <% @surveys_written.each do |survey| %>
-  <a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
-  <% end %>
-<% end %>
+    <form action="/users/<%=@user.id%>/edit" method="get">
+      <button type="submit">EDIT PROFILE</button>
+    </form><br><br>
 
-<!-- NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE -->
-<h4>Surveys I Took</h4>
-<% if @surveys_taken != nil %>
-  <% @surveys_taken.each do |survey| %>
-  <a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
-  <% end %>
-<% end %>
+    <form action="/surveys/new" method="get">
+      <button type="submit">CREATE NEW SURVEY</button>
+    </form><br><br>
+
+    <form action="/users/<%=@user.id%>/delete" method="get">
+      <input type="submit" value="DELETE PROFILE">
+    </form>
 
 
+    <!-- NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE -->
+    <h4>Surveys I Wrote</h4>
+    <!-- Don't display surveys if nil -->
+    <% if @surveys_written != nil %>
+      <% @surveys_written.each do |survey| %>
+      <a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
+      <% end %>
+    <% end %>
 
-<%= erb :_footer %>
+    <!-- NEED TO CHECK LINKS WHEN SURVEY VIEW IS COMPLETE -->
+    <h4>Surveys I Took</h4>
+    <% if @surveys_taken != nil %>
+      <% @surveys_taken.each do |survey| %>
+      <a href="/surveys/<%=survey.id%>"><%= survey.name %></a><br>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+ <%= erb :_footer %>
 </div>
 
-<style type="text/css">
-  #container {
-    margin-left: 50px;
-  }
-
-  #profile_stats td:first-child {
-    width: 150px;
-  }
-
-</style>

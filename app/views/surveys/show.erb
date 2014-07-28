@@ -1,38 +1,42 @@
-
-<h1><%= @survey.name %></h1>
-
-<table id="survey_questions">
-
-	<% @survey.questions.each_with_index do |q, i|%>
-	<tr>
-		<td><%= (i+1) %></td>
-		<td><%= q.prompt %></td>
-		<td><a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit">edit question</a> </td>
-	</tr>
-	<%end %>
-
-</table>
-
-<form action="/surveys/<%= @survey.id%>/questions/create" method="POST" id="new_question">
-
-  <input type="text" name="prompt" placeholder="Enter Your Question Here!">
-  <input type="submit" value="Submit">
-</form>
-
-<!-- <a href="/surveys/<%= @survey.id %>/questions/new" id="new_question">Add a Question!</a> -->
-
-
 <div class="container">
-<h2>Survey name:  <%= @survey.name%></h2>
-<br>
-<% questions = Question.where(survey_id: @survey.id ) %>
-  <% questions.each do |question| %>
-   <ul>Question:  <%=question.prompt  %> <a href="/surveys/<%= @survey.id %>/questions/<%= question.id %>/edit">edit question</a></ul>
-    <% ch = question.choices %>
-    <br>
-    <% ch.each do |choice| %>
-    <li><%= choice.label %> </li>
-    <br>
-    <% end %>
-  <% end %>
+  <div class="content">
+    <h1><%= @survey.name %></h1>
+
+    <table id="survey_questions">
+
+    	<% @survey.questions.each_with_index do |q, i|%>
+    	<tr>
+    		<td><%= (i+1) %></td>
+    		<td><%= q.prompt %></td>
+    		<td><a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit">edit question</a> </td>
+    	</tr>
+    	<%end %>
+    </table>
+      <form action="/surveys/<%= @survey.id%>/questions/create" method="POST" id="new_question">
+        <input type="text" name="prompt" placeholder="Enter Your Question Here!">
+        <input type="submit" value="Submit"><br><br>
+      </form>
+    <form action="/surveys/<%= @survey.id%>/results" method="GET">
+      <input type="submit" value="See Results"><br><br>
+    </form>
+
+    <!-- <a href="/surveys/<%= @survey.id %>/questions/new" id="new_question">Add a Question!</a> -->
+
+    <div class="container">
+      <h2>Survey name:  <%= @survey.name%></h2>
+      <br>
+      <% questions = Question.where(survey_id: @survey.id ) %>
+        <% questions.each do |question| %>
+        <ul>Question:  <%=question.prompt  %> <a href="/surveys/<%= @survey.id %>/questions/<%= question.id %>/edit">edit question</a></ul>
+        <% ch = question.choices %>
+        <br>
+        <% ch.each do |choice| %>
+        <li><%= choice.label %> </li>
+        <br>
+        <% end %>
+      <% end %>
+    </div>
+  </div> 
+  </div>
+  <%= erb :_footer %>
 </div>

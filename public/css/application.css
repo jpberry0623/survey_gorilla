@@ -181,3 +181,7 @@ height: 150px;
 margin-top: -200px;
 float: left;*/
 }
+#profile_stats td:first-child {
+    width: 150px;
+  }
+
