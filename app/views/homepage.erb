@@ -16,13 +16,14 @@
     <div class="todo">
       <h3>What would you like to do?</h3>
       <ul>
-        <% if @user = session[:user_id]%>
-        <li><a href="/surveys/all">Take a Survey</a></li>
-        <li><a href="/surveys/new">Create a Survey</a></li>
-        <li><a href="/surveys/new">View Profile</a></li>
+        <% current_user %>
+        <% if @current_user.id == session[:user_id]%>
+          <li><a href="/surveys/all">Take a Survey</a></li>
+          <li><a href="/surveys/new">Create a Survey</a></li>
+          <li><a href="/users/<%= @current_user.id %>">View Profile</a></li>
         <% else %>
-        <li><a href="/surveys/all">Take a Survey</a></li>
-        <li><a href="/surveys/new">Create a Survey</a></li>
+          <li><a href="/surveys/all">Take a Survey</a></li>
+          <li><a href="/surveys/new">Create a Survey</a></li>
         <% end %>
       </ul>
     </div>
