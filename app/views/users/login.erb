@@ -1,9 +1,15 @@
-<h3>Login</h3>
+<div class="container">
+  <div class="content margin">
 
-<%= @error if @error %>
-
-<form action="/users/login" method="post" id="login">
-  <input type="text" name="email" placeholder="Enter your email"><br>
-  <input type="password" name="password" placeholder="Enter your password"><br>
-  <input type="submit" value="Log me in">
-</form>
+	<h3>Login</h3>
+	<%= @error if @error %>
+	<form action="/users/login" method="post" id="login">
+	  <label>email</label>
+	  <input type="text" name="email" placeholder="Enter your email"size="25"><br>
+	  <label>password</label>
+	  <input type="password" name="password" placeholder="Enter your password"><br>
+	  <input type="submit" value="Log me in">
+	</form>
+  </div>
+</div>
+<%= erb :_footer %>

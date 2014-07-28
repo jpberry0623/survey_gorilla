@@ -1,9 +1,10 @@
 <div class="container">
     <div class="content">
         <h1>All Surveys</h1>
-        <ul>
+        <ul class="block">
+        <li><h2>Public Surveys</h2></li>	
         <% Survey.all.each do |survey| %>
-      <li><a href="/surveys/<%= survey.id %>/take"><%= survey.name %></a></li>
+      <li class="block"><a href="/surveys/<%= survey.id %>/take"><%= survey.name %></a></li>
       <% end %>
     </ul>
     </end>
